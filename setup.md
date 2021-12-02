@@ -8,4 +8,4 @@
 
 4) then type this into the terminal -- npm install -g opspark
 
-5) 
+5) now you can use either "os test" or "os submit"
