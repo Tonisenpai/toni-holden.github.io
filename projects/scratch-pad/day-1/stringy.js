@@ -14,8 +14,13 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
-
+    /*
+    I: function inputs string
+    O: function ouputs length of string
+    C: N/A
+    E: N/A
+    */
+return string.length;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -25,8 +30,13 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+/*
+    I: inputs a string
+    O: returns a string modified to lowercase
+    C: N/A
+    E: N/A
+    */
+return string.toLowerCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -36,8 +46,13 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
-
+/*
+    I: inputs a string
+    O: returns a string modified to uppercase
+    C: N/A
+    E: N/A
+    */
+return string.toUpperCase();
 
     // YOUR CODE ABOVE HERE //
 }
@@ -57,9 +72,14 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+/*
+    I: inputs a string
+    O: returns a string with dashes
+    C: N/A
+    E: N/A
+    */
+    // replace all whitespace to dashes and covert string to lowercase
+   return string.replaceAll(/[\s]/g, "-").toLowerCase();
     // YOUR CODE ABOVE HERE //
 }
 
@@ -77,8 +97,22 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
+/*
+    I: inputs a string and a character
+    O: returns a boolean value based on if the first character and input character match
+    C: should be case insensitive
+    E: N/A
+    */
+    // convert string and character to lowercase
+    string.charAt(0).toLowerCase();
+    char.toLowerCase();
 
-    
+    // create a conditional statement to check and see if the starting character matches the input character
+    if (string === char) {
+        return true;
+    } else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -97,7 +131,12 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+/*
+    I: inputs a string and a character
+    O: returns a boolean value based on if the last character and input character match
+    C: should be case insensitive
+    E: N/A
+    */
 
 
     // YOUR CODE ABOVE HERE //
@@ -110,7 +149,12 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+/*
+    I: 
+    O:
+    C:
+    E:
+    */
 
 
     // YOUR CODE ABOVE HERE //
@@ -129,7 +173,12 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
+/*
+    I: 
+    O:
+    C:
+    E:
+    */
 
     // YOUR CODE ABOVE HERE //
 }
@@ -145,7 +194,12 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+/*
+    I: 
+    O:
+    C:
+    E:
+    */
 
 
     // YOUR CODE ABOVE HERE //
@@ -160,7 +214,12 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+/*
+    I: 
+    O:
+    C:
+    E:
+    */
 
 
     // YOUR CODE ABOVE HERE //
@@ -176,7 +235,12 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+/*
+    I: 
+    O:
+    C:
+    E:
+    */
 
 
 
