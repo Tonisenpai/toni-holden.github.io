@@ -35,7 +35,27 @@
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
-    
+    /*
+    I: input is the hour of the day represented by a number
+    O: output is a string that is a greeting based on time of day
+    C: uses a 24-hour schedule instead of a 12-hour split time
+    E: N/A
+    */
+
+    // create conditional statement that checks the time of day
+    // the first statement is the morning statement: hours between 0-11
+    if (hour <= 11) {
+        console.log("Good Morning!");
+        // the second statement is the afternoon statement: hrs between 12-16
+    } else if (hour > 11 && hour <= 16) {
+        console.log("Good Afternoon!");
+        // the third statement is the evening statement: hrs between 17-21
+    } else if (hour >= 17 && hour <= 21) {
+        console.log("Good Evening!");
+        // the final statement is the night statement for the last 3 hours
+    } else {
+        console.log("Good Night!");
+    }
     
     
     

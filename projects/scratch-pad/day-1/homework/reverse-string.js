@@ -21,7 +21,12 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
+    /* 
+    I: 
+    O:
+    C:
+    E:
+    */
     
     
     

@@ -104,11 +104,11 @@ function beginsWith(string, char) {
     E: N/A
     */
     // convert string and character to lowercase
-    string.charAt(0).toLowerCase();
+    string[0].toLowerCase();
     char.toLowerCase();
 
     // create a conditional statement to check and see if the starting character matches the input character
-    if (string === char) {
+    if (string[0] === char) {
         return true;
     } else {
         return false;
@@ -150,12 +150,13 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 /*
-    I: 
-    O:
-    C:
-    E:
+    I: inputs 2 strings
+    O: returns one string that is the inputs concatenated
+    C: must use + operator
+    E: N/A
     */
 
+    return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -174,12 +175,14 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 /*
-    I: 
-    O:
-    C:
-    E:
+    I: inputs 2 strings
+    O: returns strings joined together
+    C: use the .join() method
+    E: N/A
     */
 
+    // use .join() method on the already generated array
+    return args.join("");
     // YOUR CODE ABOVE HERE //
 }
 
@@ -195,11 +198,23 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 /*
-    I: 
-    O:
-    C:
-    E:
+    I: inputs 2 strings
+    O: outputs the longest string of the two
+    C: N/A
+    E: N/A
     */
+
+    // create a conditional statement that compares the length of both of the strings
+    // the first condition is if the first string is greater than the second, return the first string
+    if (stringOne.length > stringTwo.length) {
+        return stringOne;
+    // the second condition is if the second string is greater than the first, return the second string
+    } else if (stringTwo.length > stringOne.length) {
+        return stringTwo;
+    // the last condition is if the first or second condition is not met, return -1
+    } else {
+        return -1;
+    }
 
 
     // YOUR CODE ABOVE HERE //
