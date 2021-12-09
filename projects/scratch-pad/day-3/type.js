@@ -14,9 +14,20 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
+    /* 
+    I: inputs a value
+    O: outputs a boolean based on the condition of if the value is an array or not
+    C: N/A
+    E: N/A
+    */
     
-    
-    
+    // create a conditional function that compares the value using various methods
+    // use array.isArray method
+    if (Array.isArray(value) === true) {
+        return true;
+    } else {
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -31,10 +42,20 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
+      /* 
+    I: inputs a value
+    O: outputs boolean that checks if value is an object
+    C: N/A
+    E: N/A
+    */
     
-    
-    
-    
+    // create conditional statement
+    // first statement checks for array, instanceof date, and null
+    if (typeof value === 'object' && !Array.isArray(value) && value !== null && value instanceof Date !== true) {
+        return true;
+    } else {
+        return false;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -46,8 +67,21 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+   /* 
+   I: inputs a value
+   O: outputs a boolean - if value is a collection (object or array)
+   C: N/A
+   E: N/A
+   */ 
+     // create a conditional statement that checks if value is an array or an object
+     // include: not a date and not null
+     if (Array.isArray(value) === true) {
+        return true;
+     } else if (typeof value === 'object' && value !== null && value instanceof Date !== true) {
+        return true;
+    } else {
+        return false;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -74,8 +108,34 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+      /* 
+    I: inputs a value
+    O: outputs a string that indicates the data type of the value
+    C: N/A
+    E: N/A
+    */
     
-    
+    // create a conditional statement that tests each type and returns a string
+    // start with array and make sure a normal object is last because of top-down structure
+    if (Array.isArray(value) === true) {
+        return 'array';
+    } else if (typeof value === 'object' && value === null) {
+        return 'null';
+    } else if (typeof value === 'object' && value instanceof Date) {
+        return 'date';
+    } else if (typeof value === 'string') {
+        return typeof value;
+    } else if (typeof value === 'number') {
+        return typeof value;
+    } else if (typeof value === 'boolean') {
+        return typeof value;
+    } else if (typeof value === 'function') {
+        return typeof value;
+    } else if (typeof value === 'undefined') {
+        return typeof value;
+    } else {
+        return 'object';
+    }
     
     
     // YOUR CODE ABOVE HERE //
