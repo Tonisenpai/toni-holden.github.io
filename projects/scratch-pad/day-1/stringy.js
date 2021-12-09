@@ -240,12 +240,20 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 /*
-    I: 
-    O:
-    C:
-    E:
+    I: inputs two strings
+    O: outputs 1, -1 or 0 based on if the first string is higher, lower or equal to the second in alphabetical order
+    C: N/A
+    E: N/A
     */
 
+    // create a conditional statement that compares the strings, start with stringTwo or it won't work
+    if (stringTwo < stringOne) {
+        return -1;
+    } else if (stringTwo > stringOne) {
+        return 1;
+    } else if (stringTwo = stringOne) {
+        return 0;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -260,14 +268,21 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-/*
-    I: 
-    O:
-    C:
-    E:
+    /*
+    I: inputs two strings
+    O: outputs 1, -1 or 0 based on if the second string is higher, lower or equal to the first in alphabetical order
+    C: N/A
+    E: N/A
     */
 
-
+    // create a conditional statement that compares the strings, start with stringOne or it won't work
+    if (stringOne < stringTwo) {
+        return -1;
+    } else if (stringOne > stringTwo) {
+        return 1;
+    } else if (stringOne = stringTwo) {
+        return 0;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
