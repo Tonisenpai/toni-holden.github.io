@@ -23,7 +23,12 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
+    /* 
+    I:
+    O:
+    C:
+    E:
+    */
     
     
     
