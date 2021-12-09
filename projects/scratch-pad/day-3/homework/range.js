@@ -24,14 +24,31 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     /* 
-    I:
-    O:
-    C:
-    E:
+    I: inputs two integers
+    O: outputs an array containing all incrementing integers in between
+    C: must create a range in ascending order if first number lower than second 
+    or descending order if second number is lower than first
+    E: N/A
     */
     
-    
-    
+    // create a variable that will collect output
+    var rangeArr = [];
+
+    // create conditional statement that compares integers to perform some action based on results
+    // start with: if - start is less than end
+    if (start < end) {
+        // create while loop that pushes incrementing values from start
+        while (start <= end) {
+            rangeArr.push(start++);
+        } // create else if statement: else if - start is greater than end
+    } else if (start > end) {
+        // create while loop that pushes decrementing values from start
+        while (start >= end) {
+            rangeArr.push(start--);
+        }
+    }
+    // return rangeArr
+    return rangeArr;
     // YOUR CODE GOES ABOVE HERE //
 }
 
