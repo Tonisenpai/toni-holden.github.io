@@ -22,14 +22,26 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     /* 
-    I: 
-    O:
-    C:
-    E:
+    I: inputs a string
+    O: outputs the input string reversed
+    C: N/A
+    E: N/A
     */
     
+    // create a variable that will contain the output to be returned
+    var newArray = [];
+    // turn the string characters into an array of elements using the .split() method
+    // initialize a new variable with this
+    var inputVar = input.split('');
+    // write a loop statement that will loop through inputVar
+    for (var i = inputVar.length - 1; i >= 0; i--) {
+      // push the current value of i into the newArray variable at each iteration
+      newArray.push(inputVar[i]);
+    }
     
-    
+    // use the .join() method to return the reversed string from newArray
+    return newArray.join("");
+
     // YOUR CODE GOES ABOVE HERE //
 }
 

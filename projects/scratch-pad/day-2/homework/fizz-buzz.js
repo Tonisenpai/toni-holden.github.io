@@ -20,7 +20,7 @@ function fizzBuzz() {
     */
 
     // create a for loop that iterates over the numbers 1-100
-    for (var i = 0; i < 100; i++) {
+    for (var i = 1; i <= 100; i++) {
         // create a conditional statement that checks for multiples of 3 and 5
         // start with the "FizzBuzz" statement first in order to catch those multiples
         if (i % 3 === 0 && i % 5 === 0) {

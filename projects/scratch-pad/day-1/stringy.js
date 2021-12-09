@@ -103,9 +103,9 @@ function beginsWith(string, char) {
     C: should be case insensitive
     E: N/A
     */
-    // convert string and character to lowercase
-    string[0].toLowerCase();
-    char.toLowerCase();
+    // declare variables for string and char, then set them equal to the conversion of string and character to lowercase
+    var string = string[0].toLowerCase();
+    var char = char.toLowerCase();
 
     // create a conditional statement to check and see if the starting character matches the input character
     if (string[0] === char) {
@@ -137,6 +137,16 @@ function endsWith(string, char) {
     C: should be case insensitive
     E: N/A
     */
+    // declare variables for string and char, then set them equal to the conversion of string and character to lowercase
+    var string = string[string.length - 1].toLowerCase();
+    var char = char.toLowerCase();
+
+    // create a conditional statement to check and see if the starting character matches the input character
+    if (string[string.length - 1] === char) {
+        return true;
+    } else {
+        return false;
+    }
 
 
     // YOUR CODE ABOVE HERE //
