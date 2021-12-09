@@ -132,11 +132,11 @@ function modifyStrings(strings, modify) {
     var modified = [];
 
     // create a for loop that iterated over the array of strings
-    for (i = 0; i < strings.length; i++) {
-        // 
+    for (var i = 0; i < strings.length; i++) {
+        // Pass current value in the array to the modify callback function
+        modified.push(modify(strings[i]));
     }
-    
-    
+    return modified;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -152,14 +152,20 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     /* 
-    I: inputs
-    O: outputs
-    C:
-    E:
+    I: inputs an array of strings and tester function that tests each string and see if it passes a test
+    O: outputs boolean value that returns true if all the strings pass the test, else return false
+    C: N/A
+    E: N/A
     */
     
-    
-    
+    // create a for loop that iterates over the array of strings
+    for (var i = 0; i < strings.length; i++) {
+        // pass current array value to the test function
+        if (test(strings[i]) === false) {
+            return false;
+        }
+    }
+    return true;
     // YOUR CODE ABOVE HERE //
 }
 
