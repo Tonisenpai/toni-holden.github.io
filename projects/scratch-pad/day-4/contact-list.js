@@ -35,7 +35,16 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    // create a variable initialized to an object literal
+    var obj = {};
 
+    // create object keys using dot notation and initialize them to function parameters
+    obj.id = id;
+    obj.nameFirst = nameFirst;
+    obj.nameLast = nameLast;
+
+    // return obj
+    return obj;
 } 
 
 
@@ -43,13 +52,42 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+
+        addContact: function(contact) {
+            // use the .push() method to add a contact to the array
+           return contacts.push(contact);
+        },
+
+        findContact: function(fullName) {
+            // create a loop to iterate over the contacts array
+            for (var i = 0; i < contacts.length; i++) {
+                // create a conditional statement that compares if the first and last names equal full name
+                if (contacts[i].nameFirst + contacts[i].nameLast === fullName) {
+                    // return the current contact object
+                    return contacts[i];
+                } 
+            // return undefined if it iterates over the whole array and doesn't find a match        
+            return undefined;
+            }
+            
+        },
+
+        removeContact: function(contact) {
+            // use the .pop() method to remove the passed in contact from array
+            return contacts.pop(contact);
+        },
+
+        printAllContactNames: function() {
+
         }
+        
     }
 }
 
