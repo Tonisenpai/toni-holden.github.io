@@ -69,7 +69,7 @@ function makeContactList() {
             // create a loop to iterate over the contacts array
             for (var i = 0; i < contacts.length; i++) {
                 // create a conditional statement that compares if the first and last names equal full name
-                if (contacts[i].nameFirst + contacts[i].nameLast === fullName) {
+                if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName) {
                     // return the current contact object
                     return contacts[i];
                 } 
@@ -85,7 +85,21 @@ function makeContactList() {
         },
 
         printAllContactNames: function() {
+            // create a container array for output
+            var outputArr = [];
+            
+            // iterate over contacts array
+            for (var i = 0; i < contacts.length; i++) {
+                // create variable fullName and set it equal to first name + last name separated by a space
+                var fullName = contacts[i].nameFirst + " " + contacts[i].nameLast;
 
+                // push all full names into outputArr
+                outputArr.push(fullName);
+
+                
+            }
+            // use join method to separate with line breaks "\n" and return
+            return outputArr.join("\n");
         }
         
     }
