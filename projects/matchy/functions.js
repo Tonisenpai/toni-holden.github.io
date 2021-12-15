@@ -13,12 +13,31 @@
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// declare the function "search" that takes the parameter of an array
+function search(animals, string) {
+    // loop over the animals array 
+    for (var i = 0; i < animals.length; i++) {
+        // create conditional statement: if (found), return object, if not, return null
+        if (animals[i] === string) {
+            return animals[i];
+        } else {
+            return null;
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// declare the function "replace" with 3 parameters
+function replace(animals, name, replacement) {
+    // iterate over the animals array
+    for (var i = 0; i < animals.length; i++) {
+        
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////

@@ -115,6 +115,20 @@ animals.push(dog, horse);
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+// create the variable friends and initialize it to an array literal
+var friends = []; 
+// it is an array because that is easy to iterate over and manipulate elements in it
+
+// use Math.random to get a random integer
+function getRandom(animals) {
+  return Math.floor((Math.random() * animals.length));
+}
+
+console.log(getRandom(animals));
+
+var random = animals.indexOf(getRandom(animals));
+
+friends.push(random.name);
 
 
 /**
