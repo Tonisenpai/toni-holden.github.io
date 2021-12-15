@@ -120,16 +120,23 @@ var friends = [];
 // it is an array because that is easy to iterate over and manipulate elements in it
 
 // use Math.random to get a random integer
-function getRandom(animals) {
-  return Math.floor((Math.random() * animals.length));
+function getRandom(array) {
+  return Math.floor((Math.random() * array.length));
 }
 
-console.log(getRandom(animals));
+var random = getRandom(animals);
+console.log("check random");
+console.log(random);
 
-var random = animals.indexOf(getRandom(animals));
+friends.push(animals[random].name);
 
-friends.push(random.name);
+console.log(friends);
 
+// create a friends key on the animal object and set equal to an array literal
+animal.friends = [];
+
+// assign the generated friends array to the friends key on a particular animal object
+animals[0].friends = friends;
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
