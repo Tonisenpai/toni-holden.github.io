@@ -122,11 +122,11 @@ console.log(stringSentence.toLowerCase());
  * .charAt()
  * .charCodeAt()
  * .fromCharCodeAt()
- * .lastIndexOf()
- * .replace()
+ * .lastIndexOf(): returns the index of the last instance of an element or portion of the string
+ * .replace():
  * .replaceAll()
  * .split(): separates a string into an array of strings based on a character sent as a parameter to the method
  * .substr()
  * .substring()
- * .trim()
+ * .trim(): trims the white spaces in the string
  */

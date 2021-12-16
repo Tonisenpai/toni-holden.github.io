@@ -3,7 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    // use Object.values() method to turn the object values into an array
+    return Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +12,10 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    // create variable and initialize to Object.keys() method to turn keys into an array
+    var objKeys = Object.keys(object);
+    // return the array elements as a string
+    return objKeys.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +23,21 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    // create variable and initialize to Object.values() method to turn values into an array
+    var objVals = Object.values(object);
+
+    // create a new array variable
+    var newArray = [];
+
+    // iterate over the objVals array
+    for (var i = 0; i < objVals.length; i++) {
+        // create a conditional statement: if current index is a string, push into new array
+        if (typeof objVals[i] === "string") {
+            newArray.push(objVals[i]);
+        }
+    }
+    // turn newArray into a string
+    return newArray.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +45,13 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    // create a conditional statement and use typeof and Array.isArray to check for array or object
+    if (Array.isArray(collection) === true) {
+        return 'array';
+        // do all the checks for "object" while using the typeof keyword
+     } else if (typeof collection === 'object' && collection !== null && collection instanceof Date !== true && !Array.isArray(collection)) {
+        return 'object';
+    } 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +59,10 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    // use split method to turn the string into an array and initialize to variable
+    var arr = string.split();
+
+    //
 }
 
 //////////////////////////////////////////////////////////////////////
