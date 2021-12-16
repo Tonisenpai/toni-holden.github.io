@@ -60,9 +60,13 @@ function arrayOrObject(collection) {
 
 function capitalizeWord(string) {
     // use split method to turn the string into an array and initialize to variable
-    var arr = string.split();
+    var arr = string.split("");
 
-    //
+    // capitalize arr[0]
+    arr[0] = arr[0].toUpperCase();
+
+    // return the array joined
+    return arr.join("");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -70,7 +74,20 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    // use split method to turn the string into an array and initialize to variable
+    var array = string.split(" ");
+
+    // create a newArr variable
+    var newArr = [];
+
+    // iterate over the array
+    for (var i = 0; i < array.length; i++) {
+        // capitalize each word in the array and push into newArr
+     newArr.push(array[i][0].toUpperCase() + array[i].slice(1));
+
+    }
+ // return the array
+     return newArr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -78,7 +95,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+    // take the value of the object and uppercase the first letter and initialize to a variable
+    var newName = object.name[0].toUpperCase() + object.name.slice(1);
 
+    // return "Welcome " + name + "!"
+    return "Welcome " + newName + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
