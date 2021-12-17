@@ -194,12 +194,13 @@ function nonFriends(name, array) {
 
     // iterate over the array
     for (var i = 0; i < array.length; i++) {
-        if (array.includes(name)) {
-            return;
-        } else {
-            newArray.push(name);
+        // check if the current index is NOT equal to name and doesn't include name
+        if (array[i].name !== name && !array[i].friends.includes(name)) {
+            // push the current index's name into newArray
+            newArray.push(array[i].name);
         }
     }
+    // return newArray
     return newArray;
 }
 
@@ -208,7 +209,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    // re-assign the value to the key or create key and assign the value
+    object[key] = value;
+    // return the object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -216,7 +220,7 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    
 }
 
 //////////////////////////////////////////////////////////////////////
