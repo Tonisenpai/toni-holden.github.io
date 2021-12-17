@@ -107,7 +107,14 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
+    // take the 1st value of the object and uppercase the first letter and initialize to a variable
+    var newTitle = object.name[0].toUpperCase() + object.name.slice(1);
 
+    // take the 2nd value of the object and uppercase the first letter and initialize to a variable
+    var newKind = object.species[0].toUpperCase() + object.species.slice(1);
+
+    // return "Welcome " + name + "!"
+    return newTitle + " is a " + newKind;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +122,14 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    // create conditional statement that checks if noises array exists and if the length is > 0
+    if (object.noises && object.noises.length > 0) {
+        // if true, return the array joined with a space
+        return object.noises.join(" ");
+    } else {
+        // if false, return string: "there are no noises"
+        return "there are no noises";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,6 +137,17 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
+    // iterate over the string
+    for (var i = 0; i < string.length; i++) {
+        // create a conditional statement: if string includes word
+        if (string.includes(word)) {
+            // if true, return true
+            return true;
+        } else {
+            // if false, return false
+            return false;
+        }
+    }
 
 }
 
@@ -131,7 +156,11 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    // push the name of the friend into the friends array
+    object.friends.push(name);
+    
+    // return the object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -139,7 +168,20 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
+        // create conditional: if - object has friends array and array includes name
+        if (!object.friends) {
+            // if true, return true
+            return false;
+        } 
 
+        for (var i = 0; i < object.friends.length; i++) {
+            if (object.friends.includes(name) === true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -147,7 +189,18 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    // create container for new array
+    newArray = [];
 
+    // iterate over the array
+    for (var i = 0; i < array.length; i++) {
+        if (array.includes(name)) {
+            return;
+        } else {
+            newArray.push(name);
+        }
+    }
+    return newArray;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -171,7 +224,13 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    // initialize variable result to the array.filter method
+    let result = array.filter((element, index) => {
+        // use indexOf method to get the first occurrence of an element 
+        return array.indexOf(element) === index;
+    })
+    // return the result
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////
