@@ -101,6 +101,17 @@ console.log(string.indexOf('6')); // prints 9 to the console
 // the indexOf() method returns a number
 
 
+// .lastIndexOf(): returns the index of the last instance of an element or portion of the string
+// If it is found, then the index of the last instance of the character is returned. 
+// If it is not found, it returns -1.
+var string = 'White Christmas';
+
+console.log(string.length); // prints 15 to the console
+
+console.log(string.lastIndexOf('t')); // prints 11 to the console
+// the lastIndexOf() method returns a number
+
+
 // .toUpperCase(): takes a string, converts all the characters (or in some cases a specified section of the string) to uppercase, 
 //and then returns the result
 var lyrics = 'the hills are alive';
@@ -116,17 +127,35 @@ var stringSentence = "WHISPER TO THE WIND";
 console.log(stringSentence.toLowerCase());
 // prints "whisper to the wind" to the console
 
+
+// .split(): separates a string into an array of strings based on a character sent as a parameter to the method
+// split will return the array containing the split element(s)
+let str = "Please check in at the front desk.";
+
+let strCopy = str.split(' ');
+console.log(strCopy);
+// expected output: Array ["Please, check, in, at, the, front, desk."]
+
+
+// .trim(): trims the white spaces in the string
+let store = '   Whole Foods   ';
+
+console.log(store);
+// expected output: "   Whole Foods   ";
+
+console.log(store.trim());
+// expected output: "Whole Foods";
+
+
+
 // list of some other methods:
 
 /**
  * .charAt()
  * .charCodeAt()
  * .fromCharCodeAt()
- * .lastIndexOf(): returns the index of the last instance of an element or portion of the string
  * .replace():
  * .replaceAll()
- * .split(): separates a string into an array of strings based on a character sent as a parameter to the method
  * .substr()
  * .substring()
- * .trim(): trims the white spaces in the string
  */

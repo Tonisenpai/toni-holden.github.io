@@ -220,7 +220,13 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-    
+    // iterate over the array
+  for (var i = 0; i < array.length; i++) {
+    // conditional statement: if - array[i] is a key on object
+    if (object.hasOwnProperty(array[i])) {
+      delete object[array[i]];
+    } 
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
