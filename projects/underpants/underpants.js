@@ -81,11 +81,9 @@ _.typeOf = function(value) {
 */
 
 _.first = function(array, number) {
-    // create an output array
-    let output = [];
-
     // create a conditional statement that checks if the array is or is not actually an array
     if (!Array.isArray(array)) {
+        // return an empty array
         return [];
     } else {
         // iterate over the array
@@ -94,13 +92,20 @@ _.first = function(array, number) {
         }
         // create another conditional statement: if - there is no number or it's not a number
         if (number < 0) {
+            // return an empty array
             return [];
+            // else if: the number is NaN or it's type does not equal 'number'
         } else if (number === NaN || typeof number !== 'number') {
+            // return the first element of the array
             return array[0];
+            // else if: the number is greater than the array's length
         } else if (number > array.length) {
+            // return the entire array
             return array;
+            // else: 
         } else {
-            array[number];
+            // use the slice method to return a sliced copy of the first items of array up until the index of the number provided
+            return array.slice(0, number);
         }
     }
 
@@ -126,7 +131,34 @@ _.first = function(array, number) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 _.last = function(array, number) {
+    // create a conditional statement that checks if the array is or is not actually an array
+    if (!Array.isArray(array)) {
+        // return an empty array
+        return [];
+    } else {
+        // iterate over the array backwards
+        for (let i = 0; i < array.length; i++){
 
+        }
+        // create another conditional statement: if - there is no number or it's not a number
+        if (number < 0) {
+            // return an empty array
+            return [];
+            // else if: the number is NaN or it's type does not equal 'number'
+        } else if (number === NaN || typeof number !== 'number') {
+            // return the last element of the array
+            return array[array.length - 1];
+            // else if: the number is greater than the array's length
+        } else if (number > array.length) {
+            // return the entire array
+            return array;
+            // else: 
+        } else {
+            // use the slice method to return a sliced copy of the last items of array up until the index of the number provided
+            // to get the last number of items, must use negative number and array.length to access it
+            return array.slice(-number, array.length);
+        }
+    }
 }
 
 
@@ -147,7 +179,16 @@ _.last = function(array, number) {
 */
 
 _.indexOf = function(array, value) {
+    // iterate over the array
+    for (let i = 0; i < array.length; i++) {
 
+        // create a conditional statement: if - value is not present
+        if (array[i] === value) {
+            return i;
+        } 
+    }
+    // return -1 outside of for loop
+    return -1;
 }
 
 
@@ -168,7 +209,8 @@ _.indexOf = function(array, value) {
 */
 
 _.contains = function(array, value) {
-
+    // use ternary operator and the includes method to check if array includes the value
+    return array.includes(value) ? true : false;
 }
 
 
