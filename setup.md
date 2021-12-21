@@ -9,3 +9,10 @@
 4) then type this into the terminal -- npm install -g opspark
 
 5) now you can use either "os test" or "os submit"
+
+
+cd .. >> this gets out of the workspace and then back into it
+
+getting to lodown project
+>> go to menu at top left
+>> go to: file >> open file >> delete everything up to "workspace/" and lodown will pop up. 

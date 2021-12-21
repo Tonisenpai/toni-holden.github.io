@@ -39,19 +39,19 @@ function countChars() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function countBs(string) {
-  // create counter variable
-  let count;
+  // create counter variable and iitialize to array literal
+  let count = [];
 
   // iterate over the string
   for (let i = 0; i < string.length; i++) {
    
     // create conditional statement, if - current index = "B", count += 1
     if (string[i] === "B") {
-      count += 1;
+      count.push(string[i]);
     }
   }
   // return the count
-  return count;
+  return count.length;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
