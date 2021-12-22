@@ -231,9 +231,21 @@ _.contains = function(array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
-_.each = function(collection, callFunc) {
-
-} 
+_.each = function(collection, func) {
+    // determine if collection is an array
+    if(Array.isArray(collection)) {
+        // iterate through the collection
+        for(var i = 0; i < collection.length; i++) {
+            // call input function, passing current value of array, current index, and array as arguments
+            func(collection[i], i, collection);
+        }
+    } else {
+        // iterate through the object
+        for (var key in collection) {
+            func(collection[key], key, collection);
+        }
+    }
+}
 
 
 
@@ -248,7 +260,10 @@ _.each = function(collection, callFunc) {
 */
 
 _.unique = function(array) {
-
+    // create a new set and initialize it to a variable called special
+    let special = [...new Set(array)];
+    // return the variable
+    return special;
 }
 
 
@@ -270,7 +285,19 @@ _.unique = function(array) {
 */
 
 _.filter = function(array, test) {
-
+    // create a new array variable and initialize it to array literal
+    let outputArr = [];
+    
+    // iterate over the array
+    for (let i = 0; i < array.length; i++) {
+        // create conditional: if - call of function === true
+        if (test(array[i], i, array)) {
+            // push the current index of the array to the output array
+            outputArr.push(array[i]);
+        }
+    }
+    // return the output array
+    return outputArr;
 }
 
 
@@ -290,7 +317,19 @@ _.filter = function(array, test) {
 */
 
 _.reject = function(array, test) {
-
+    // create a new array variable and initialize it to array literal
+    let outputArr = [];
+    
+    // iterate over the array
+    for (let i = 0; i < array.length; i++) {
+        // create conditional: if - call of function === true
+        if (!test(array[i], i, array)) {
+            // push the current index of the array to the output array
+            outputArr.push(array[i]);
+        }
+    }
+    // return the output array
+    return outputArr;
 }
 
 
@@ -334,8 +373,26 @@ _.partition = function(array, callFunc) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function(collection, test) {
+_.map = function(collection, func) {
+    // create output array
+    let output = [];
 
+    // determine if colletion is an array
+    if (Array.isArray(collection)) {
+        // iterate through array
+        for (let i = 0; i < collection.length; i++) {
+            // call input function, passing in current array value, current index and collection
+            var result = func(collection[i], i, collection);
+            output.push(result);
+        }
+    } else {
+        for (var key in collection) {
+            var result = func(collection[key], key, collection);
+            output.push(result);
+        }
+    }
+    // return the output array
+    return output;
 }
 
 
