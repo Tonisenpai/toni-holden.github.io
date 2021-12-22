@@ -352,8 +352,23 @@ _.reject = function(array, test) {
 }
 */
 
-_.partition = function(array, callFunc) {
-
+_.partition = function(array, test) {
+    // create 2 new array variables and initialize it to array literal
+    let output1 = [];
+    let output2 = [];
+    
+    // iterate over the array
+    for (let i = 0; i < array.length; i++) {
+        // create conditional: if - call of function === true
+        if (test(array[i], i, array)) {
+            // push the current index of the array to the output array
+            output1.push(array[i]);
+        } else { // else, push it into the second output array
+            output2.push(array[i]);
+        }
+    }
+    // return the output array with both arrays "partitioned" in an outer array
+    return [output1, output2];
 }
 
 
