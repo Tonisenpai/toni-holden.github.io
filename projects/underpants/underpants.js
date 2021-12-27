@@ -424,7 +424,7 @@ _.map = function(collection, func) {
 */
 
 _.pluck = function(array, prop) {
-
+  
 }
 
 
@@ -450,8 +450,45 @@ _.pluck = function(array, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function(collection, callFunc) {
-
+_.every = function(collection, test) {
+    // if function is undefined, return true
+    if (test === undefined) {
+        if (Array.isArray(collection)) {
+            // iterate through array
+            for (let i = 0; i < collection.length; i++) {
+                // test if every element has a falsy value, if so, return false
+                if (!collection[i]) {
+                    return false;
+                }
+            }
+        } else {// iterate through the object
+            for (var key in collection) {
+                // test if every element has a falsy value, if so, return false
+                if (!collection[key]) {
+                return false;
+                }
+            }
+        }
+        // determine if colletion is an array
+    } else { 
+        if (Array.isArray(collection)) {
+            // iterate through array
+            for (let i = 0; i < collection.length; i++) {
+                // test if every element is not true and return false if even one is not true
+                if (!test(collection[i], i, collection)) {
+                    return false;
+                } 
+            }
+        } else {
+        for (var key in collection) {
+            if (!test(collection[key], key, collection)) {
+                return false;
+                } 
+            }
+        }
+    }
+    // return true outside of conditional statement
+    return true;
 }
 
 
@@ -477,8 +514,45 @@ _.every = function(collection, callFunc) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function(collection, callFunc) {
-
+_.some = function(collection, test) {
+    // if function is undefined, return true
+    if (test === undefined) {
+        if (Array.isArray(collection)) {
+            // iterate through array
+            for (let i = 0; i < collection.length; i++) {
+                // test if every element has a falsy value, if so, return false
+                if (collection[i]) {
+                    return true;
+                }
+            }
+        } else {// iterate through the object
+            for (var key in collection) {
+                // test if every element has a falsy value, if so, return false
+                if (collection[key]) {
+                return true;
+                }
+            }
+        }
+        // determine if colletion is an array
+    } else { 
+        if (Array.isArray(collection)) {
+            // iterate through array
+            for (let i = 0; i < collection.length; i++) {
+                // test if every element is not true and return false if even one is not true
+                if (test(collection[i], i, collection)) {
+                    return true;
+                } 
+            }
+        } else {
+        for (var key in collection) {
+            if (!test(collection[key], key, collection)) {
+                return true;
+                } 
+            }
+        }
+    }
+    // return true outside of conditional statement
+    return false;
 }
 
 

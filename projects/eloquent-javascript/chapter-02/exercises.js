@@ -90,7 +90,7 @@ function drawChessboard(x) {
     chessBoard.push(row);
   }
   // return the chessBoard joined with a line break
-  return chessBoard.join("\n") + "\n";
+  console.log(chessBoard.join("\n") + "\n");
 }
 
 

@@ -1,13 +1,17 @@
 /**
 * STRING MANIPULATION:
+
 * 0. Strings are simple datatypes, but they're not so simple. They are treated as objects masquerading as 
 a simple datatype, and therefore has features a simple datatype normally wouldn't.
+
 * 1. Strings have a length property, which can be used to assist in manipulating that string, especially
 in the case of loops. It returns the length of a string (the length also counts the whitespaces as 
 characters. However, it really shines when it is used to iterate over the length of a string (in a loop)
 in order to act on the string or elements of the string in some way.
+
 * 2. Strings can be manipulated using a specific operator. The "+" operator does not only add numerical 
 values together. You can also add strings together using this operator. This is called "concatenation".
+
 * 3. Strings can also be manipulated using methods: ".concat()", ".slice()", ".inlcudes()", ".indexOf()", 
 ".toUpperCase()", ".toLowerCase()".
 */
