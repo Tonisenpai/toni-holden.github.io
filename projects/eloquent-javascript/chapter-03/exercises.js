@@ -30,8 +30,20 @@ function isEven(num) {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+  // create counter variable and intialize to array literal
+  let count = [];
 
+  // iterate over the string
+  for (let i = 0; i < string.length; i++) {
+   
+    // create conditional statement, if - current index = "B", count += 1
+    if (string[i] === char) {
+      count.push(string[i]);
+    }
+  }
+  // return the count
+  return count.length;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +51,7 @@ function countChars() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function countBs(string) {
-  // create counter variable and iitialize to array literal
+  // create counter variable and intialize to array literal
   let count = [];
 
   // iterate over the string

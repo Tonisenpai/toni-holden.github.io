@@ -16,6 +16,7 @@ values together. You can also add strings together using this operator. This is 
 ".toUpperCase()", ".toLowerCase()".
 */
 
+
 // 1. the .length property //
 
 // the length of this string is printed to the console

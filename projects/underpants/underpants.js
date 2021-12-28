@@ -424,7 +424,13 @@ _.map = function(collection, func) {
 */
 
 _.pluck = function(array, prop) {
-  
+    // create an output variable and set it equal to the mapped function
+  let output = _.map(array, function(value) {
+      // return the property of the current value
+      return value[prop];
+  });
+  // return the output
+  return output;
 }
 
 
@@ -575,8 +581,25 @@ _.some = function(collection, test) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
-_.reduce = function(array, callFunc, seed) {
-
+_.reduce = function(array, test, seed) {
+    // if seed is not present
+    if (seed === undefined) {
+        // set seed to first value in the array
+        seed = array[0];
+        // iterate through array starting at the 1 index
+        for (let i = 1; i < array.length; i++) {
+            // assign function call to seed variable, will change at each iteration
+            seed = test (seed, array[i], i);
+        } 
+    } else {
+        // iterate through the array normally, with index equal to 0
+        for (let i = 0; i < array.length; i++) {
+            // assign function call to seed variable, will change at each iteration
+            seed = test(seed, array[i], i);
+        }
+    }
+    // return the seed
+    return seed;
 }
 
 
@@ -595,8 +618,12 @@ _.reduce = function(array, callFunc, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(obj1, obj2) {
-    
+_.extend = function(...obj1) {
+    // use the Object.assign method to copy the properties
+    let newObj = Object.assign(...obj1);
+
+    // return the object
+    return newObj;
 }
 
 

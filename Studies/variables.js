@@ -45,8 +45,92 @@
  * 5. Hoisting is a concept that refers to an action that the JavaScript interpreter takes
  * prior to the execution of the code in your program in which it moves the declaration 
  * of certain variables and functions to the top of the code to make them accessible before
- * the program even runs. All declared named functions are hoisted, but not anonymous functions
+ * the program even runs. All function definitions are hoisted, but not anonymous functions
  * and not all variables are hoisted. Let and Const variables are not hoisted. All variables
  * declared with the "var" keyword are hoisted unless they are declared inside of a function.
+ * All undeclared variables are global variables when assignment of the variable is executed.
  */
 
+
+// 1. Declaration //
+
+// variable declared with "var" keyword
+var tree;
+// typically a global scoped variable
+
+// variable declared with "let" keyword
+let pageCount;
+// typically is a function-scoped variable
+
+// variable declared with "const" keyword
+const parish;
+// throws an error, because const variables must be initialized with a value
+// error: "SyntaxError: Missing initializing in const declaration"
+
+
+// 2. Assignment and Initialization //
+
+// Assigning values to the previously declared variables
+tree = "oak";
+
+pageCount = 371;
+
+const parish = "Orleans"; // initialized to a value
+
+
+// Initialization of variables look like this:
+
+var cupBrand = "Dixie";
+
+let population = 200351;
+
+const sunnyWeather = true;
+
+
+// 3. Re-assignment //
+
+// Re-assignment is just changing the value at the back of a variable, we are re-assigning the previously declared "tree" variable
+
+tree = "spruce";
+
+tree = "pine";
+
+console.log(tree);
+// logs "pine" to the console
+
+
+// 4. Var, Let and Const //
+
+// var is typically a global variable, you can re-assign them and re-declare them
+
+// another example of re-assignment
+var tea = "Vanilla Chai";
+
+var tea = "Matcha Green";
+
+console.log(tea);
+// re-declared and re-assigned variable using "var" keyword
+// prints "Matcha Green" to the console
+
+// let is a block or function scoped variable
+let book = "Wizard of Oz";
+
+// re-assigning let variable
+book = "Pride and Prejudice";
+
+console.log(book);
+// prints "Pride and Prejudice" to the console
+
+// cannot be re-declared, will throw an error
+let book = "Lord of the Rings";
+
+console.log(book);
+// error message: "SyntaxError: Identifier 'book' has already been declared"
+
+// const cannot be re-declared or re-assigned and must be initialized to a variable
+const shoes;
+// error message: "SyntaxError: Missing initializer in const declaration"
+
+const cerealBrand = "Cocoa Puffs";
+cerealBrand = "Fruit Loops";
+// error message: "TypeError: Assignment to constant variable"
