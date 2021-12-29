@@ -74,16 +74,28 @@ var youngestCustomer = function(array) {
 };
 
 var averageBalance = function(array) {
-    let average = _.reduce(array, function(total, num, index) {
-         total += num;
+    // create variable "average" and initialize it to the entire reduce function
+    let average = _.reduce(array, function(total, customer, index) {
+        // create the variable "regex" and initialize to regex filter
+        let regex = /[$,]/g;
+        // create variable "replaced" and initialize to replace method on customer's balance
+        // replace method is replacing the string in customer balance with regex - syntax: replace(regex, "")
+        let replaced = customer.balance.replace(regex, "");
+        // create "floated" variable and initialize to parseFloat method on replaced variable
+        let floated = parseFloat(replaced);
+            // total is added and assigned (+=) floated variable at eaach iteration
+            total += floated;
 
-         if (index === array.length - 1) {
-             return total/array.length;
-         } else {
-             return total;
-         }
-    });
-    return average;
+           // create conditional: if - index is strictly equal to the last element in the array 
+           if (index === array.length - 1) {
+               // return the total divided by the length of the array
+               return total / array.length;
+           } else { // else return the total
+               return total;
+           }
+      }, 0); // use a seed to initialize the first thing passing through to be a number
+      // return the average
+      return average;
 };
 
 var firstLetterCount = function(array, letter) {
@@ -100,14 +112,28 @@ var firstLetterCount = function(array, letter) {
     }, 0);
 }
 
-var friendFirstLetterCount = function(array, letter) {
+var friendFirstLetterCount = function(array, customer, letter) {
+    let customerObj = _.filter(array, function(cust) {
+        return cust.name === customer;
+      })
+    
+      let friendList = customerObj[0].friends;
+
     // create return statement for reduce function
-    return _.reduce(array, function(count, current) {
-        
-    })
+    let letterCount = _.reduce(friendList, function(count, current) {
+        if (current.name[0].toUpperCase() === letter.toUpperCase()) {
+            // count plus equals 1 
+            count += 1;
+        } 
+        // return the count
+        return count;
+    }, 0);
+    return letterCount;
 };
 
-var friendsCount;
+var friendsCount = function(array, name) {
+    
+};
 
 var topThreeTags;
 
