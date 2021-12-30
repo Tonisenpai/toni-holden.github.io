@@ -132,7 +132,26 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
-    
+    // initialize a variable to filter function
+    let customers = _.filter(array, function(cust) {
+        // iterate through the customers.friends array
+        for(let i = 0; i < cust.friends.length; i++) {
+            // if - true
+            if (cust.friends[i].name === name) {
+                // return true
+                return true;
+            }
+        }
+    })
+
+    // initialized "mapped" variable to map function on customers
+    let mapped = _.map(customers, function(cust) {
+        // return the customer name
+        return cust.name;
+    })
+
+    // return mapped
+    return mapped;
 };
 
 var topThreeTags = function(array){
