@@ -135,9 +135,13 @@ var friendsCount = function(array, name) {
     
 };
 
-var topThreeTags;
+var topThreeTags = function(array){
 
-var genderCount;
+};
+
+var genderCount = function(array, object) {
+    
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
