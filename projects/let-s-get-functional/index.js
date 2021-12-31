@@ -189,7 +189,21 @@ var topThreeTags = function(array){
 };
 
 var genderCount = function(array, object) {
-    
+    // create variable "genders" and initialize to reduce method
+    let genders = _.reduce(array, function(countObj, current, index) {
+        // determine if the current object's gender property already exists in the accumulator
+        if (countObj[current.gender]) {
+          // does countObj[current.gender] resolve to truthy? Does a value exist there?
+            // if it does, add 1 to it
+          countObj[current.gender] += 1;
+        } else { // else - assign the key to equal 1
+          countObj[current.gender] = 1;
+        }
+        // return countObj
+        return countObj;
+      }, {});
+      // return genders
+      return genders;
 };
 
 //////////////////////////////////////////////////////////////////////
