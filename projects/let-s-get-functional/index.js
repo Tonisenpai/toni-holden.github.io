@@ -155,7 +155,37 @@ var friendsCount = function(array, name) {
 };
 
 var topThreeTags = function(array){
+    // create a tag object
+  let tagObj = {};
 
+  // iterate through input array
+  for (let i = 0; i < array.length; i++) {
+    // create tags variable and initialize to currentIndex.tags
+    let tags = array[i].tags;
+
+    // iterate over the tags array
+    for (let i = 0; i < tags.length; i++) {
+
+
+      // create conditional: if - the current index of tags exists
+      if (tagObj[tags[i]]) {
+        // add one to the key of tags[i]
+        tagObj[tags[i]] += 1;
+      } else { // else assign the number one to the key of tags[i]
+        tagObj[tags[i]] = 1;
+      }
+    }
+  }
+
+  // iterate through tagObj to create an array that looks like: [["Film", 2], ["Books", 2]], etc.
+    // use Object.entries and sort methods to initialize a "tagArr" variable to the returned sorted array
+
+  let tagArr = Object.entries(tagObj).sort(function(a, b) {
+    return b[1] - a[1];
+  });
+
+
+  return [tagArr[0][0], tagArr[1][0], tagArr[2][0]];
 };
 
 var genderCount = function(array, object) {
