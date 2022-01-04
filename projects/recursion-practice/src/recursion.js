@@ -55,7 +55,7 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n) {
   // base
-  if (n === n) {
+  if (n > 0) {
     return n - 1;
   } 
   // recursion
@@ -88,10 +88,36 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  // base: create conditional:
+  // if - string is equal to the smallest unit (empty string)
+  if (string === "") {
+    // return an empty string
+    return "";
+  }
+  // recursion: return a function call:
+  // function call reverse - substring 1 + character at 0 index
+  return reverse(string.substring(1)) + string.charAt(0);
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  // method chain: set the string to lowercase and replace all whitespaces
+  let newString = string.toLowerCase().replace(/\s+/g, ""); 
+  // base
+  // create conditional: if - string length is 0 or 1
+  if (newString.length === 0 || newString.length === 1) {
+    // return true
+    return true;
+  }
+
+  // recursion
+  // create conditional: if - first and last letter match
+  if (newString[0] === newString[string.length - 1]) {
+    // return recursive call: slice string at first and last letter
+    return palindrome(newString.slice(0, newString.length - 1));
+  }
+  // return false outside of recursive loop for all other cases
+  return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
