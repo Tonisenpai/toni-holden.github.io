@@ -55,14 +55,22 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n) {
   // base
-  if (n > 0) {
-    return n - 1;
+  // create conditional: if - number equals 0, 1 or -1
+  if (n === 0 || n === 1 || n === -1) {
+    // return 0
+    return 0;
   } 
   // recursion
+  // create conditional: if - number is negative
   if (n < 0) {
-    return n + sumBelow(n + 1);
-  } else {
-    return n + sumBelow(n - 1);
+    // increment away from first value, assign +1 to "n" to go to the next value above (because it's negative)
+    n += 1; // n = n + 1
+    // return function call, added to n
+    return n + sumBelow(n);
+  } else { // increment away from first value, assign -1 to "n" to go to the next value below (because it's positive)
+    n -= 1; // n = n - 1
+    // return function call, added to n
+    return n + sumBelow(n);
   }
 };
 
@@ -112,9 +120,9 @@ var palindrome = function(string) {
 
   // recursion
   // create conditional: if - first and last letter match
-  if (newString[0] === newString[string.length - 1]) {
+  if (newString[0] === newString[newString.length - 1]) {
     // return recursive call: slice string at first and last letter
-    return palindrome(newString.slice(0, newString.length - 1));
+    return palindrome(newString.slice(newString[0]) && newString.slice(newString.length - 1));
   }
   // return false outside of recursive loop for all other cases
   return false;
@@ -214,6 +222,16 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  // base: create conditional: if - n strictly equals 0 or 1
+  if (n === 0 || n ===1) { // return n
+    return n;
+    // else if - n is less than 0
+  } else if (n < 0) { // return null
+    return null;
+  }
+  // recursion
+  // create two added function calls: (n - 1) + (n - 2)
+  return nthFibo(n - 1) + nthFibo(n +-2);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
