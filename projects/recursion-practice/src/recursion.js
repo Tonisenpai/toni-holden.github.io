@@ -12,6 +12,7 @@ var factorial = function(n) {
     return null;
   }
   // recursion
+  // return n multiplied by the function call: n - 1
   return n * factorial(n - 1);
 };
 
@@ -19,13 +20,14 @@ var factorial = function(n) {
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
   // base
-  if (array.length === 1) {
+  if (array.length === 1) { // if - length of array equals 1, return array[0]
     return array[0];
   } else if (array.length === 0) {
     // edge case: return 0 if it is an empty array
     return 0;
   }
   // recursion
+  // return aray[0] plus function call on array sliced at 1
   return array[0] + sum(array.slice(1));
 };
 
@@ -37,15 +39,15 @@ var arraySum = function(array) {
 // 4. Check if a number is even.
 var isEven = function(n) {
   // base
-  if (n === 1) {
+  if (n === 1) { // if n equals 1, return false
     return false;
-  } else if (n === 0) {
+  } else if (n === 0) { // if n equals 0, return true
     return true;
   }
   // recursion
-  if (n < 0) {
+  if (n < 0) { // if n is less than 0, return function call on n + 2
     return isEven(n + 2);
-  } else {
+  } else { // else return function call on n - 2
     return isEven(n - 2);
   }
 };
@@ -76,24 +78,27 @@ var sumBelow = function(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y, outputArr=[]) {
+var range = function(x, y, outputArr=[]) { // create default parameter
   // base
-  if (x < y) {
-    if (x === y || x + 1 === y) {
+  if (x < y) { // create conditional: if - x is less than y
+    if (x === y || x + 1 === y) { // create nested conditional: if x or x + 1 equals y
+    // return the output array
     return outputArr;
     }
-  } else {
-    if (x === y || x - 1 === y) {
+  } else { // else: if x or x - 1 equals y
+    if (x === y || x - 1 === y) { // return the output array
     return outputArr;
     }
   }
 
   // recursion
-  if (x < y) {
+  if (x < y) { // if x is less than y, push x + 1 into the output array
     outputArr.push(x + 1);
+    // return the function call on x + 1, y and the output array
     return range(x + 1, y, outputArr);
-  } else {
+  } else { // else: push x - 1 into the output array
     outputArr.push(x - 1);
+    // return the function call on x - 1, y, and the output array
     return range(x - 1, y, outputArr);
   }
 };
@@ -105,16 +110,18 @@ var range = function(x, y, outputArr=[]) {
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
   // base
-  if (exp === 0) {
+  if (exp === 0) { // if - exp equals 0, return 1
     return 1;
-  } else if (exp === 1) {
+  } else if (exp === 1) { // if exp equals 1, return the base
     return base;
   }
 
   // recursion
-  if (exp < 0) {
+  if (exp < 0) { // if exp is less than 0
+    // return the base divided by function call on base and exp - 1
     return base / exponent(base, -exp + 1);
   } 
+  // return the base multiplied by function call on the base and exp - 1 
   return base * exponent(base, exp - 1);
 };
 
@@ -124,12 +131,13 @@ var exponent = function(base, exp) {
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
   // base
-  if (n === 0) {
+  if (n === 0) { // if n equals 0, return false
     return false;
-  } else if (n === 1) {
+  } else if (n === 1) { // if n equals 1, return true 
     return true;
   }
   // recursion
+  // return function call on n divided by 2
   return powerOfTwo(n / 2);
 };
 
@@ -210,72 +218,90 @@ var gcd = function(x, y) {
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
   // base 
-  if (str1.length === 0 && str2.length === 0) {
+  // create conditional: if the length of string1 or string2 equals 0 
+  if (str1.length === 0 && str2.length === 0) { // return true
     return true;
   }
   
   // recursion
-  if (str1[0] === str2[0]) {
+  if (str1[0] === str2[0]) { // conditional: if the 0 index of both strings match
+    // return function call on both strings sliced at 1
     return compareStr(str1.slice(1), str2.slice(1));
-  } else {
+  } else { // else, return false
     return false;
   }
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str, output=[]){
+var createArray = function(str, output=[]){ // create default parameter
   // base
+  // create conditional: if the length of the string is 0, return the output
   if (str.length === 0) {
     return output;
   }
 
   // recursion
+  // push the 0 index of the string into the default parameter
   output.push(str[0]);
+  // return function call on the string sliced at 1 and the default parameter
   return createArray(str.slice(1), output);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array, output=[]) {
+var reverseArr = function (array, output=[]) { // create default parameter
   // base
-  if (array.length === 0) {
+  if (array.length === 0) { // conditional: if array length is 0
+    // return the output array
     return output;
   }
   // recursion
+  // push the last element of the array into the output array
   output.push(array[array.length - 1]);
+  // pop the last value off of the source array
   array.pop();
+  // return the function call on the array and output array
   return reverseArr(array, output);
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length, output=[]) {
+var buildList = function(value, length, output=[]) { // create default parameter
   // base
-  if (length === 0) {
+  if (length === 0) { // conditional: if length is 0, return the output
     return output;
   }
 
   // recursion
+  // push the value into the output array
   output.push(value);
+  // return function call on the value, length - 1 and the output array
   return buildList(value, length - 1, output);
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value, output=[]) {
+var countOccurrence = function(array, value, output=[]) { // create default parameter
   // base
-  if (array.length === 0) {
+  if (array.length === 0) { // conditional: if length of the array is 0
+    // return the length of the output array
     return output.length;
   }
+
   // recursion
-  if (value === array[0]) {
+  // conditional: if the value equals the 0 index of the array
+  if (value === array[0]) { // push the 0 index of the array into the output array
     output.push(array[0]);
+    // shift the first value off of the source array 
     array.shift();
-    return countOccurrence(array, value, output);
+    
+  } else { // else, just shift the first value off of the source array
+    array.shift();
   }
- 
+  // return the function call on the array, value and output array
+  return countOccurrence(array, value, output);
 };
 
 // 20. Write a recursive version of map.
