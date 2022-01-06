@@ -4,7 +4,7 @@
 
 2) In the bashrc file, type -- export CHE_PROJECTS_ROOT=/workspace
 
-3) Close the terminal and bash file and then type this into the terminal -- export CHE_PROJECTS_ROOT=/workspace
+3) Close the terminal and bash file and then type this into the terminal -- sudo apt-get install subversion
 
 4) then type this into the terminal -- npm install -g opspark
 
@@ -16,3 +16,5 @@ cd .. >> this gets out of the workspace and then back into it
 getting to lodown project
 >> go to menu at top left
 >> go to: file >> open file >> delete everything up to "workspace/" and lodown will pop up. 
+
+https://github.com/Tonisenpai/lodown.git
