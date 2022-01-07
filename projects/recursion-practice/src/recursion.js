@@ -307,6 +307,10 @@ var countOccurrence = function(array, value, output=[]) { // create default para
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
 var rMap = function(array, callback) {
+  // base
+
+  // recursion
+
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -343,7 +347,7 @@ var fibonacci = function(n) {
 // nthFibo(3); // 2
 var nthFibo = function(n) {
   // base: create conditional: if - n strictly equals 0 or 1
-  if (n === 0 || n ===1) { // return n
+  if (n === 0 || n === 1) { // return n
     return n;
     // else if - n is less than 0
   } else if (n < 0) { // return null
@@ -351,13 +355,18 @@ var nthFibo = function(n) {
   }
   // recursion
   // create two added function calls: (n - 1) + (n - 2)
-  return nthFibo(n - 1) + nthFibo(n +-2);
+  return nthFibo(n - 1) + nthFibo(n + -2);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, output=[]) {
+  // base
+
+  // recursion
+
+
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
@@ -392,7 +401,22 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, arr=[]) {
+  // base
+  if (list.length === 0) {
+    return arr;
+  }
+
+  // recursion
+  if (list[0] === list[1]) {
+    arr.push(list[0]);
+    list.shift();
+    list.shift();
+  } else {
+    arr.push(list[0]);
+    list.shift();
+  }
+  return compress(list, arr);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -404,7 +428,21 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output=[]) {
+  // base
+  if (array.length === 0) {
+    return output;
+  }
+
+  // recursion
+  if (array[0] === 0) {
+    output.push(array[0]);
+    array.shift();
+  } else {
+    output.push(array[0]);
+    array.shift();
+  }
+  return minimizeZeroes(array, output);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of

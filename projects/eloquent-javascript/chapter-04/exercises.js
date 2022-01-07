@@ -2,8 +2,29 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, step) {
+  let range = [];
+  // edge case
+  if (start === end) {
+    return [];
+  }
 
+  // if step is not passed in
+  if (step === undefined) {
+    for (let i = start; i <= end; i++) {
+      // 1, 2, 3, 4
+      range.push(i);
+    }
+  } else { // step was passed in
+    if (step < 0) {
+      return [];
+    } else {
+      for (let i = start; i <= end; i += step) {
+        range.push(i);
+      }
+    }
+  } // return range
+  return range;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -18,24 +39,68 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array) {
+  let reversed = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    reversed.push(array[i]);
+  }
+  return reversed;
 }
+
+/*
+Another way to solve this:
+
+function reverseArray(array) {
+  let reversed = [];
+  for (let i = 0; i < array.length; i++) {
+    reversed. unshift(array[i]);
+  }
+  return reversed;
+}
+
+*/
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) { // => [1, 2, 3, 4]
+  // [1, 2, 3, 4] // even number of values
+  // [1, 2, 3, 4, 5] // odd number of values
 
+  // [1, 2, 3, 4] =>
+    // [4, 2, 3, 1]
+    // [4, 3, 2, 1]
+
+    if (array.length % 2 === 0) {
+      for (let i = 0; i < array.length / 2; i++) { // i < 2
+        let temp = array[i]; // temp = 1
+        array[i] = array.length - 1 - i; // array[0] = array[3 - 0] or array[0] = 4
+        array[array.length - 1 - i] = temp; // [4, 3, 2, 1]
+      }
+    } else {
+      for(let i = 0; i < Math.floor(array.length / 2); i++) {
+        let temp = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = temp;
+      }
+    }
+    return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
+function arrayToList(array) { // create variable called rest and initialize to null
+  let rest = null;
 
+  // iterate over the array
+  for (let i = array.length - 1; i >= 0; i--) {
+    // basically, re-assign rest to an object with a key of value and value of current array index and another key of rest
+    rest = {value: array[i], rest}
+  } // return rest
+  return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -58,8 +123,14 @@ function prepend() {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
+function nth(list, n) {
+  // base case
+  if (n === 0) {
+    return list.value;
+  }
 
+  // recursion
+  return nth(list.rest, n - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
