@@ -31,8 +31,13 @@ function range(start, end, step) {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(array) {
+  let total = 0;
+  let nums = array.length;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i];
+  }
+  return total;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +80,7 @@ function reverseArrayInPlace(array) { // => [1, 2, 3, 4]
     if (array.length % 2 === 0) {
       for (let i = 0; i < array.length / 2; i++) { // i < 2
         let temp = array[i]; // temp = 1
-        array[i] = array.length - 1 - i; // array[0] = array[3 - 0] or array[0] = 4
+        array[i] = array[array.length - 1 - i]; // array[0] = array[3 - 0] or array[0] = 4
         array[array.length - 1 - i] = temp; // [4, 3, 2, 1]
       }
     } else {
@@ -107,16 +112,25 @@ function arrayToList(array) { // create variable called rest and initialize to n
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(list) { // create variable called "arr" and initialize to array literal
+  let arr = [];
+  // iterate through list
+  for (let node = list; node; node = node.rest) {
+    //push the value of node into arr
+    arr.push(node.value);
+  } // return arr
+  return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, list) {
+  return {
+    value: value,
+    rest: list
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -127,6 +141,8 @@ function nth(list, n) {
   // base case
   if (n === 0) {
     return list.value;
+  } else if (n < 0) {
+    return undefined;
   }
 
   // recursion
