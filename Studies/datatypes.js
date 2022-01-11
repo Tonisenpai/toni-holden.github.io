@@ -76,7 +76,7 @@ computations having to do with the concept of a number JavaScript deems is at ei
 positive infinity. Infinity in JavaScript is itself a property of the global object. It is neither
 writable, enumerable, nor configurable.
 
-* 11. Simple vs Complex Datatypes: 
+* 11. Simple vs Complex Datatypes:
 
 * 12.
 */
