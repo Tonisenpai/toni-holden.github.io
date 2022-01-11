@@ -2,16 +2,28 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
-
+function flatten(array) { // return array with applied reduce function
+  return array.reduce(function(previous, current) { // takes in previous and current value
+    // return the previous value concatted to the current value
+    return previous.concat(current);
+  })
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
-
+function loop(start, stop, update, action) {
+  // base
+    // if the stop function called on the start value is equal to false, then just return
+  if (stop(start) === false) {
+    return;
+  }
+  // recursion
+    // call action on the current value of start
+  action(start); // console.log(0)
+  // return callback on loop function
+  return loop(update(start), stop, update, action);
 }
 
 // /////////////////////////////////////////////////////////////////////////////
