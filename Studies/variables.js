@@ -134,3 +134,61 @@ const shoes;
 const cerealBrand = "Cocoa Puffs";
 cerealBrand = "Fruit Loops";
 // error message: "TypeError: Assignment to constant variable"
+
+// 5. Hoisting //
+
+console.log(news);
+var news = "Fox 8-Live";
+// news is a variable declaration, thus it is hoisted
+
+/*
+the interpreter sees the above code as:
+
+var news; => value is undefined here
+console.log(news);
+news = "Fox 8-Live";
+*/
+
+var households = 4;
+var numOfHouses = 5085;
+var population = getPop(households, numOfHouses);
+
+function getPop(pplCount, houseCount) {
+    return pplCount * houseCount;
+} // getPop is a function declaration, all function declarations are hoisted above variable declarations
+
+/*
+the interpreter sees the above code as:
+
+function getPop(pplCount, houseCount) {
+    return pplCount * houseCount;
+}
+var households;
+var numOfHouses;
+var population;
+households = 4;
+numOfHouses = 5085;
+population = getPop(households, numOfHouses);
+*/
+
+chipCount = 3250;
+
+if (chipCount < 50) {
+    var message = 'restock';
+}
+console.log(message); // prints "restock"
+// var variables are hoisted and will print to the console in this instance
+
+chipCount = 3250;
+
+if (chipCount < 50) {
+    let message = 'restock'; // message is greyed out here because it is inaccessible outside of this block of code
+}
+console.log(message);
+// let and const variables are block-scoped and thus are not hoisted
+// throws ReferenceError: message is not defined
+
+
+console.log(cantReach);
+let cantReach = true;
+// throws ReferenceError: cantReach is not defined
