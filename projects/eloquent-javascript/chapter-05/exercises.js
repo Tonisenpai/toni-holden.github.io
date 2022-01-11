@@ -19,7 +19,26 @@ function loop() {
 // /////////////////////////////////////////////////////////////////////////////
 
 function every(array, test) {
-
+  // if function is undefined, return true
+  if (test === undefined) {
+    // iterate through array
+    for (let i = 0; i < array.length; i++) {
+      // test if every element has a falsy value, if so, return false
+      if (!array[i]) {
+          return false;
+      }
+  }
+} else { 
+    // iterate through array
+    for (let i = 0; i < array.length; i++) {
+      // test if every element is not true and return false if even one is not true
+      if (!test(array[i], i, array)) {
+          return false;
+      } 
+  }
+}
+// return true outside of conditional statement
+return true;
 }
 
 // /////////////////////////////////////////////////////////////////////////////

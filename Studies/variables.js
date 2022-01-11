@@ -192,3 +192,7 @@ console.log(message);
 console.log(cantReach);
 let cantReach = true;
 // throws ReferenceError: cantReach is not defined
+
+console.log(x);
+let x = 567;
+// throws ReferenceError: Cannot access 'x' before initialization
