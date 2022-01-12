@@ -76,7 +76,17 @@ computations having to do with the concept of a number JavaScript deems is at ei
 positive infinity. Infinity in JavaScript is itself a property of the global object. It is neither
 writable, enumerable, nor configurable.
 
-* 11. Simple vs Complex Datatypes:
+* 11. Simple vs Complex Datatypes: Simple dataypes are values that don't take up a lot of memory
+and are immutable, which means the can't be changed. Simple or primitive datatypes represent the 
+lowest level of JavaScript, kind of like the atomic level is the lowest level in the world according
+to science. These values are copied "BY COPY" (see next section). Simple datatypes cannot hold other 
+values, as they are the smallest elements in JavaScript. Complex datatypes on the other hand, can
+potentially take up a whole lot of memory as they are mutable (changeable) and can grow exponentially
+and there is no limit or ceiling to how large they can become. Because of the potential for them to eat
+up memory in your program, complex datatypes are copied "BY REFERENCE" (see next section). Complex 
+datatypes can hold primitive values as well as other complex datatypes. So, in essence, simple datatypes
+can be viewed as a page in a book, and complex datatypes can be viewed as whole libraries.
 
-* 12.
+* 12. Pass By Copy (or value) vs Pass By Reference: this concept refers to the way JavaScript copies 
+values. 
 */

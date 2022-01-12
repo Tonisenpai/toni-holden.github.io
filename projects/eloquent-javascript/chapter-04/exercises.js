@@ -153,8 +153,33 @@ function nth(list, n) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y) {
+  if (x === null || y === null) {
+    return false;
+  }
+  // if both values are not objects, compare them directly
+  if (typeof x !== 'object' && typeof y !== "object") {
+    return x === y;
+  }
+  // create arrays of objects keys
+  var xKeys = Object.keys(x); // ['a', 'b']; [test]
+  var yKeys = Object.keys(y); // ['a', 'b']; [test]
 
+  //determine if the keys arrays are the same length, if not return false
+  if (xKeys.length !== yKeys.length) {
+    return false;
+  }
+
+  // iterate through the keys arrays
+  for (var i = 0; i < xKeys.length; i++) {
+    // does keys2 include the current key from keys1?
+    // keys includes('a')
+    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[yKeys[i]])) {
+      // keys.includes('a')
+      return false;
+    }
+  }
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
