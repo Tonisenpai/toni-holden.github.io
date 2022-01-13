@@ -88,5 +88,33 @@ datatypes can hold primitive values as well as other complex datatypes. So, in e
 can be viewed as a page in a book, and complex datatypes can be viewed as whole libraries.
 
 * 12. Pass By Copy (or value) vs Pass By Reference: this concept refers to the way JavaScript copies 
-values. 
+values. Passing a value BY COPY or BY VALUE, means that if you assign a value to an already declared
+variable that is assigned to a primitive value, that value is copied to the new variable and both values 
+are referencing two different addresses in memory. What this means is, if the second variable changes
+its assignment or the value is changed in some way, the value at the first address remains unchanged.
+Passing a value BY REFERENCE, on the other hand is the opposite. There is a real focus here on the 
+conservation of memory in the program when it comes to copying the values of variables when they are
+complex datatypes. This is the difference between copying a page in a book versus copying the contents
+of an entire library. It would make more sense to copy the page and merely reference the location of the
+library. If a variable was assigned the value of another declared variable where its value is a complex
+datatype (i.e let a = [1, 2, 3]; let b = a;), the assignments of both variables will point to or
+references the exact memory address in the program (both a and b reference the same array at the same address in memory).
+This means that if the datatype is changed or mutated in some way through one of the attached variables,
+that mutation will show when the other variable is called upon, because the array located at the same
+address was mutated and that mutation was saved in memory at that location, not only at the moment it
+changed with that one variable. Re-assignment of one of the variables to an entirely different (complex)
+datatype, even if they both look identical, will only then point to two separate locations in memory and 
+one can be manipulated without affecting the other in any way.   
 */
+
+//
+
+//
+
+//
+
+//
+
+//
+
+//
