@@ -107,14 +107,154 @@ datatype, even if they both look identical, will only then point to two separate
 one can be manipulated without affecting the other in any way.   
 */
 
-//
+// 1. Number //
 
-//
+let laptopBoxCount = 33251; // the variable "laptopBoxCount" has been assigned the number 33251
 
-//
+let x = 25; // the variable "x" has been assigned the number 25
 
-//
 
-//
+// 2. String // 
 
-//
+let address = "2235 Memory Lane"; // the variable "address" has been assigned a string
+
+let bookTitle = "The Wind-Up Bird Chronicle";
+
+let publisher = "Shueisha";
+
+let randomString = "$@151 kgdynmm?" // a string can be any number of type of character if it is in quotation marks
+
+
+// 3. Boolean //
+
+let hasCar = false; // variable assigned a boolean value
+
+let canSing = true;
+
+3 === 8; // Boolean expression, will return false
+
+if (x === y) {
+    return true;
+} // a boolean is returned based on the conditional statement
+
+
+
+// 4. Array // 
+
+let arr = []; // variable assigned an array literal
+
+let sampleArray = ["Sally", "Marcus", "Mae", "Hogarth"]; 
+// indices            0         1       2        3
+// the length of this array is 4, but has an index of up to 3
+
+let newArr = [75, "Gandalf", 59, [5, 7, 3], false, {name: "Perry"}]   
+// the array [5, 7, 3] is a nested array and the last element is an object
+
+let randomArray = [3, "Caroline", true, [4, 5], { x: 35 }];
+// contains primitive and complex datatypes
+// indices 0 - 2 are primitive, indices 3 and 4 are complex
+
+
+
+// 5. Object //
+
+let newObj = {}; // variable is assigned an object literal
+
+let obj = {
+	city: "New Orleans",
+	music: "jazz",
+	tourism: "french quarter",
+	topTenCities: true
+};  // the keys are before the colon and the values are after
+
+
+var patient = {
+	name: "Jesse",
+	idNumber: 520141,
+	prescription: "bedrest",
+	dateOfVisit: "4 Oct 2021",
+    nextOfKin: ["daughter - Maizy", "son - Karlyle", "Husband - Jerry"],
+    insurancePolicy: {
+        policyNumber: 55412562120,
+        company: "Life One Insurance",
+        dateCreated: "6 July 1990"
+    }
+}; // can hold primitive and complex datatypes
+
+
+
+// 6. Function //
+
+function sentence(age) { // age is the parameter
+	console.log("I am " + age + " years old today!"); // this is the action to take with the given parameter
+}
+
+sentence(30); // will print to the console: "I am 30 years old today!" This is a function call. The number 30 is the argument.
+
+
+
+// 7. undefined //
+
+let name; // declared variable
+
+console.log(name); // will return undefined, because the variable was declared but never assigned a value
+
+
+// 8. null // 
+
+let myObj = null; // this is typically assigned to a variable purposefully
+
+if (value === target) {
+    return value;
+} else {
+    return null; // this is a typical situation where this may be necessary
+}
+return;
+
+
+// 9. NaN //
+
+let numberArr = [2, 4, NaN, 12]; // a numbers array that includes a number that is not a number
+
+
+
+// 10. Infinity and -Infinity //
+
+// example borrowed from MDN
+
+const maxNumber = Math.pow(10, 1000); // max positive number
+
+if (maxNumber === Infinity) {
+  console.log('Let\'s call it Infinity!');
+  // expected output: "Let's call it Infinity!"
+}
+
+console.log(1 / maxNumber);
+// expected output: 0
+
+
+
+// 11. Pass By Copy vs Pass By Reference
+
+let a = 64;
+
+let b = a;
+
+b = b + 2;
+
+console.log(a); // 64
+console.log(b); // 66
+
+// this is copied by value because these are primitive values, so the original is never changed even if the copy is
+
+
+let x = [8];
+
+let y = x;
+
+y.push(9);
+
+console.log(x); // [8, 9]
+console.log(y); // [8, 9]
+
+// this is copied by reference because they are complex values, so the new variable can change the old variable because it's at the same location in memory
