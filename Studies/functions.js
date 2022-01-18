@@ -26,9 +26,12 @@ on the time it requires to produce code.
 * 4. The inputs of a function are found in the parentheses at the beginning of the function. These values are called
 parameters. The outputs are what is returned or printed to the console after the function is called with arguments
 that are passed in. Parameters are found in the parentheses. Arguments are passed into the placeholders (parameters)
-as values to be acted on in the function.
+as values to be acted on in the function. Arguments are passed into a function call. A function call is a way to pass
+a value in (called an argument) and return a value from the arguments replacing the placeholders at the time of the 
+function call. The syntax of a function call is just the name of the function and a pair of parentheses, with the 
+arguments you want passed through inside the parentheses. The call ends with a semicolon at the end.
 
-* 7. Scope: Scope is related to hoisting. Variables can only be hoisted inside their own scope. There are 3 different 
+* 5. Scope: Scope is related to hoisting. Variables can only be hoisted inside their own scope. There are 3 different 
 types of scope, function or local scope, global scope and block scope. Child scopes can have access to variables in the 
 parent scope, but that is a one-way street, parent scopes cannot access variables in the child scope. Parameters are a
 part of the local or function scope. The keyword "var" creates a new variable inside its scope and the "let" and "const"
@@ -91,6 +94,7 @@ let animeList = {
 
 
 getArrayOfAnime(animeList); // animeList is the argument being passed into the function to be acted on
+// this is an example of a function call
 
 // 4. Arrow Functions //
 
