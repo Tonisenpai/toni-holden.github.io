@@ -28,9 +28,14 @@ parameters. The outputs are what is returned or printed to the console after the
 that are passed in. Parameters are found in the parentheses. Arguments are passed into the placeholders (parameters)
 as values to be acted on in the function.
 
-* 7. Scope: 
+* 7. Scope: Scope is related to hoisting. Variables can only be hoisted inside their own scope. There are 3 different 
+types of scope, function or local scope, global scope and block scope. Child scopes can have access to variables in the 
+parent scope, but that is a one-way street, parent scopes cannot access variables in the child scope. Parameters are a
+part of the local or function scope. The keyword "var" creates a new variable inside its scope and the "let" and "const"
+keywords are only block scoped.
 
-* 6. A closure is a function that gives you access to an outer function's scope from an inner function. 
+* 6. A closure is a function that gives you access to an outer function's scope from an inner function. Only functions
+can create a closure, but not all functions act as closures.
 */
 
 // 1. Declaration //
@@ -80,9 +85,7 @@ let animeList = {
 };
 
  function getArrayOfAnime(obj) { // obj is the parameter, a placeholder for an argument to pass in
-    // Your Code Below Here
   console.log(Object.keys(obj));
-    // Your Code Above Here
   }
 
 
@@ -99,5 +102,22 @@ function (x){
 // arrow function
 x => x + 2;
 
-// 5. Closure //
+// 5. Scope //
 
+var myName = "Mary"; // created in the global scope
+
+function sayName() {
+    var myDog = "Topaz"; // this is a local variable
+    console.log(myName + " has a dog named " + myDog); // this will work as expected using a global variable and function's local variable
+}
+
+sayName();
+console.log(myName); // this will print because it is a global variable
+console.log(myDog); // this will not print because it is a local variable called in the global scope
+
+// 6. Closure //
+
+const add = (function () {
+    let counter = 0;
+    return function () {counter += 1; return counter}
+  })(); // example borrowed from W3Schools
